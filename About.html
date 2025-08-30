@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Parole - About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-green: #5cb85c;
+            --light-green: #90ee90;
+            --silver-grey: #c0c0c0;
+            --text-color: #ffffff;
+            --dark-green-skyline: #337a33;
+            --button-bg: #4CAF50;
+            --button-hover: #45a049;
+            --footer-text: #333;
+            --header-bg: rgba(255, 255, 255, 0.9);
+            --header-text: var(--main-green);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--silver-grey);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            box-sizing: border-box;
+            background-color: var(--header-bg);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        .header-brand {
+            color: var(--main-green);
+            font-size: 1.8em;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .header-nav {
+            display: flex;
+        }
+
+        .header-link {
+            color: var(--header-text);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-left: 25px;
+            transition: color 0.3s ease;
+        }
+
+        .header-link:hover {
+            color: var(--button-hover);
+        }
+        
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+            padding-top: 80px;
+            padding-bottom: 80px;
+            box-sizing: border-box;
+        }
+
+        /* Styles for About Us Section */
+        #about-us-container {
+            max-width: 500px;
+            width: 90%;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #333;
+            text-align: center;
+        }
+        
+        #about-us-container h2 {
+            color: var(--main-green);
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.8em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            margin-bottom: 0;
+        }
+        
+        .skyline-wrapper {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            overflow: hidden;
+            z-index: 5;
+        }
+
+        .skyline {
+            width: 150%;
+            height: 100%;
+            background-color: var(--dark-green-skyline);
+            position: absolute;
+            bottom: 0;
+            left: -25%;
+            animation: moveSkyline 60s linear infinite;
+            opacity: 0.9;
+        }
+
+        .skyline::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right,
+                transparent 0%,
+                var(--dark-green-skyline) 5%,
+                var(--dark-green-skyline) 15%,
+                transparent 20%,
+                var(--dark-green-skyline) 25%,
+                var(--dark-green-skyline) 35%,
+                transparent 40%,
+                var(--dark-green-skyline) 45%,
+                var(--dark-green-skyline) 55%,
+                transparent 60%,
+                var(--dark-green-skyline) 65%,
+                var(--dark-green-skyline) 75%,
+                transparent 80%,
+                var(--dark-green-skyline) 85%,
+                var(--dark-green-skyline) 95%,
+                transparent 100%
+            );
+            mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><defs><filter id="f1" x="0" y="0"><feGaussianBlur in="SourceGraphic" stdDeviation="0.5" /></filter></defs><path fill="black" d="M0 100 L0 50 C20 30, 40 40, 60 20 S100 0, 120 10 C140 20, 160 10, 180 30 S220 50, 240 30 S280 10, 300 20 C320 30, 340 10, 360 30 S400 50, 420 30 S460 10, 480 20 C500 30, 520 10, 540 30 S580 50, 600 30 S640 10, 660 20 C680 30, 700 10, 720 30 S760 50, 780 30 S820 10, 840 20 C860 30, 880 10, 900 30 S940 50, 960 30 S1000 10, 1000 0 L1000 100 Z" filter="url(#f1)"/></svg>');
+            mask-repeat: repeat-x;
+            mask-size: auto 100%;
+        }
+
+        @keyframes moveSkyline {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .footer {
+            width: 100%;
+            text-align: center;
+            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--footer-text);
+            font-size: 0.9em;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 20;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .footer img {
+            height: 25px;
+            vertical-align: middle;
+            margin-right: 0;
+        }
+
+        .footer-email {
+            color: var(--main-green);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer-email:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 10px 20px;
+            }
+            .header-brand {
+                font-size: 1.5em;
+            }
+            .header-link {
+                font-size: 1em;
+                margin-left: 15px;
+            }
+            #about-us-container {
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 8px 15px;
+            }
+            .header-brand {
+                font-size: 1.2em;
+            }
+            .header-link {
+                font-size: 0.9em;
+                margin-left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="header-brand">Green Parole</a>
+        <div class="header-nav">
+            <a href="about.html" class="header-link">About Us</a>
+            <a href="index.html" class="header-link">Volunteer</a>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <!-- About Us Container -->
+        <div id="about-us-container">
+            <h2>About Green Parole</h2>
+            <p>
+                Green Parole was started in 2009 with a mission to educate and empower young Nigerians through citizenship education and empowerment.
+            </p>
+        </div>
+    </div>
+
+    <div class="skyline-wrapper">
+        <div class="skyline"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="mailto:info@greenparole.org" class="footer-email">info@greenparole.org</a>
+            <span>&copy; 2025 Green Parole. All rights reserved.</span>
+        </div>
+    </footer>
+</body>
+</html>
